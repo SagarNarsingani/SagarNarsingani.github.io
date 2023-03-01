@@ -1,0 +1,52 @@
+svg#freepik_stories-developer-activity:not(.animated) .animable {
+	opacity: 0;
+}
+
+svg#freepik_stories-developer-activity.animated #freepik--Window--inject-2 {
+	animation: 2.7s 1 forwards linear slideUp, 6s Infinite linear floating;
+	animation-delay: 2.5s, 5.2s;
+	opacity: 0
+}
+
+svg#freepik_stories-developer-activity.animated #freepik--Graphics--inject-2 {
+	animation: 1.6s 1 forwards linear slideUp, 3s Infinite linear floating;
+	animation-delay: 1.5s, 3.6s;
+	opacity: 0
+}
+
+svg#freepik_stories-developer-activity.animated #freepik--Character--inject-2 {
+	animation: 1.6s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideUp;
+	animation-delay: 0s;
+}
+
+@keyframes slideUp {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: inherit;
+	}
+}
+
+@keyframes floating {
+	0% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+
+	50% {
+		transform: translateY(-10px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+.animator-hidden {
+	display: none;
+}

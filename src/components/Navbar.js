@@ -108,6 +108,7 @@ const Options = styled.ul`
 
 const Option = styled.li`
     display: inline;
+    opacity: .45;
     margin-inline: 1em;
     cursor: pointer;
     position: relative;
@@ -130,5 +131,8 @@ const Option = styled.li`
         z-index: -1;
     }
 
-    &:hover { color: #000; }
+    &:hover { 
+        color: #000;
+        opacity: 1;
+    }
 `;

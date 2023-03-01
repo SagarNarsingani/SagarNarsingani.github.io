@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: 'Fira Code', monospace;
@@ -13,4 +18,26 @@ code {
   /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace; */
     font-family: 'Fira Code', monospace;
+}
+
+
+/* --------------------- Landing Page Typewriter Styling -------------------- */
+
+.Typewriter{
+  display: inline-block;
+  position: relative;
+}
+
+.typewriter_cursor::after{
+  content: '';
+  width: 10px;
+  position: absolute;
+  border-bottom: 5px solid #33aa29;
+  top: 78%;
+  animation: blink .5s step-end infinite;
+}
+
+@keyframes blink {
+  from, to{border-color: transparent}
+  50%{background-color: #33aa29}
 }
