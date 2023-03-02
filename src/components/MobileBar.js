@@ -50,20 +50,33 @@ const MobileOptions = styled.div`
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-    width: 30rem;
+    max-width: 30%;
     background-color: rgb(54, 55, 70, 0.9);
-    padding: .2rem 0em;
+    padding: .75rem 0em;
     box-shadow: 23px 23px 90px 1px rgba(0,0,0,.55);
     backdrop-filter: blur(10px);
     margin: auto;
+
+    @media screen {
+        max-width: 80%;
+    }
+
+    @media (max-width: 360px) {
+     max-width: 100%;
+    }
 `;
 
 const MobileOption = styled.div`
-    font-size: 1.45em;
+    font-size: 1.45rem;
     cursor: pointer;
     
     p {
         font-size: .7em;
         margin: 0;
+    }
+
+    @media (max-width: 550px){
+        font-size: 1em;
+        padding-inline: 1em;
     }
 `;

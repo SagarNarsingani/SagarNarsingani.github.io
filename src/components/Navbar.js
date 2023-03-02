@@ -24,6 +24,7 @@ export const Navbar = () => {
 const Conrainer = styled.div`
     background-color: #363746;             // for background color
     position: fixed;                      // for keeping it on top of other elements
+    right: 0; left: 0;
     display: flex;                       // for aligning the title and options.
     align-items: center;                // for aligning the title and options vertically
     width: 100%;                       // making it full width
@@ -68,9 +69,8 @@ const Title = styled.span`
 const Heading = styled.div`
     overflow: hidden;
     white-space: nowrap;           // for the text to be in one line
-    position: relative;         // for the after element to be positioned relative to the parent
+    position: relative;           // for the after element to be positioned relative to the parent
     letter-spacing: 1.5px;
-    justify-items: center;
     animation: slideIn 3.5s steps(40, end);
     
     // for the blinking cursor
@@ -93,16 +93,22 @@ const Heading = styled.div`
         from, to{border-color: transparent}
         50%{background-color: #33aa29}
     }
+
+    @media(max-width: 830px) {
+        display: block;
+        margin-inline: auto;
+    }
 `
 
 const Options = styled.ul`
     font-weight: 500;
     font-size: 1.1em;
     position: absolute;     // needed to shift the options to the right.
-    right: 5rem;
+    right: 1rem;
 
     @media(max-width: 830px) {
         display: none;
+        right: 0;
     }
 `;
 

@@ -8,6 +8,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 import CoverImage from '../assets/landing-image.jsx'
 
 export const Landing = () => {
+  console.log(window.innerWidth);  
   return (
     <Container>
         <IntroCard>
@@ -62,6 +63,10 @@ export const Landing = () => {
                         Wanna grab one?
                     </Tooltip>
             </DetailedIntro>
+            <CalltoAction>
+                <Button inverted> Hire Me! </Button>
+                <Button> Resume </Button>
+            </CalltoAction>
         </IntroCard>
 
         <Cover>
@@ -74,22 +79,35 @@ export const Landing = () => {
 
 
 const Container = styled.div`
-    padding: 4em 1em 0;
+    padding-block: 4em 10em;
     font-family: 'Jost', sans-serif;
+    /* border: 2px solid blue; */
     color: white;
-    width: 90%;
+    width: 85%;
     margin-inline: auto;
     letter-spacing: .25em;
     display: flex;
-    justify-content: space-around;
-    /* align-items: center; */
-    /* border: 2px solid red;     */
+
+    @media (max-width: 960px) {
+        flex-wrap: wrap;
+        width: 100%;
+    }
 `;
 
 const IntroCard = styled.div`
-    width: 60%;
     /* border: 2px solid red; */
-    padding: 7.5em 2em;
+    width: 60%;
+    padding: 10% 3%;
+    min-width: 520px;
+
+    @media (max-width: 960px) {
+        order: 2;
+        width: 80%;
+        margin-inline: auto;
+        padding: 0;
+        text-align: center;
+        min-width: 0px;
+    }
 `;
 
 const Hello = styled.h2`
@@ -103,12 +121,12 @@ const Hello = styled.h2`
 
         @keyframes wave {
             0% { transform: rotate( 0.0deg) }
-            10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+            10% { transform: rotate(14.0deg) }  
             20% { transform: rotate(-8.0deg) }
             30% { transform: rotate(14.0deg) }
             40% { transform: rotate(-4.0deg) }
             50% { transform: rotate(10.0deg) }
-            60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+            60% { transform: rotate( 0.0deg) } 
             100% { transform: rotate( 0.0deg) }
         }
     }
@@ -126,6 +144,12 @@ const TypingIntro = styled.div`
     white-space: nowrap;
     font-weight: 500;
     font-size: 1.2em;
+
+    @media (max-width: 530px){
+        white-space: normal;
+        width: 80%;
+        margin-inline: auto;
+    }
 `;
 
 const DetailedIntro = styled.p`
@@ -136,13 +160,63 @@ const DetailedIntro = styled.p`
     #coffee{
         position: relative;
         top: .15em;
-        /* left: 5em; */
     }
 `;
 
 const Cover = styled.div`
     width: 45%;
-    align-self: center;
+    min-width: 520px;
+    padding: 2em 0 0 1em;
     /* border: 2px solid red; */
-    margin-top: 2em;
+    @media(max-width: 960px){
+        order: 1;
+        margin-inline: auto;
+        min-width: 360px;
+        padding-inline: 1em;
+    }
+
+    @media(max-width: 420px) {
+        min-width: 240px;
+    }
+`;
+
+const CalltoAction = styled.div`
+    padding: 2rem 0;
+    /* border: 2px solid red; */
+    @media (max-width: 960px) {
+        /* display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap; */
+    }
+`;
+
+const Button = styled.button`
+    font-size: 1.15em;
+    border-radius: 5px;
+    background-color: ${props => props.inverted ? "#76b687": "transparent"};
+    border: 2px solid #76b687;
+    outline: none;
+    color: ${props => props.inverted ? "black": "white"};
+    cursor: pointer;
+    padding: .7rem 2rem;
+    font-weight: 500;
+    margin-right: 1.75rem;
+    letter-spacing: .075em;
+    transition: all 1s;
+    
+    @media (max-width: 960px) {
+        margin-inline-start: 1em;
+        margin-inline-end: 1em;
+    }
+
+    @media (max-width: 509px){
+        display: inline-block;
+        margin-top: 1em;
+        margin-inline: center;
+    }
+    &:hover{
+        background-color: ${props => props.inverted ? "transparent": "#76b687"};
+        color: ${props => props.inverted ? "white": "black"};
+    }
+
 `;
