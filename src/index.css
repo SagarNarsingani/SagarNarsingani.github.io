@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  font-family: 'Fira Code', monospace;
+  font-family: 'Jost', sans-serif;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
@@ -20,26 +20,4 @@ code {
   /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace; */
     font-family: 'Fira Code', monospace;
-}
-
-
-/* --------------------- Landing Page Typewriter Styling -------------------- */
-
-.Typewriter{
-  display: inline-block;
-  position: relative;
-}
-
-.typewriter_cursor::after{
-  content: '';
-  width: 10px;
-  position: absolute;
-  border-bottom: 5px solid #33aa29;
-  top: 78%;
-  animation: blink .5s step-end infinite;
-}
-
-@keyframes blink {
-  from, to{border-color: transparent}
-  50%{background-color: #33aa29}
 }

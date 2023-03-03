@@ -17,11 +17,12 @@ export const Landing = () => {
                 <span id='wave'>👋🏻</span>, 
                 <Tooltip 
                     anchorSelect='#wave' 
+                    className='tooltip'
                     style={{
                         backgroundColor: "rgba(0, 0, 0, 0.2)",
                         opacity: '0.6',
                         fontWeight: '400',
-                        fontSize: '.9rem',
+                        fontSize: '.6em',
                         cursor: "pointer"
                     }}
                 >
@@ -51,11 +52,13 @@ export const Landing = () => {
                     <GiCoffeeMug id='coffee' style={{cursor: 'pointer'}}/>
                     <Tooltip 
                         anchorSelect='#coffee' 
+                        className='tooltip'
                         style={{
                             backgroundColor: "rgba(0, 0, 0, 0.2)",
                             opacity: '0.8',
-                            fontSize: '.9rem',
+                            fontSize: '.75em',
                             cursor: "pointer",
+                            position:'float',
                             marginTop: '1em'
                         }}
                         place='right'
@@ -79,15 +82,16 @@ export const Landing = () => {
 
 
 const Container = styled.div`
-    padding-block: 4em 10em;
-    font-family: 'Jost', sans-serif;
-    /* border: 2px solid blue; */
+    // because of navbar...
+    padding-top: 3em;
     color: white;
+    // making space for the side-bars...
     width: 85%;
     margin-inline: auto;
     letter-spacing: .25em;
     display: flex;
 
+    // for smaller screens...
     @media (max-width: 960px) {
         flex-wrap: wrap;
         width: 100%;
@@ -95,13 +99,13 @@ const Container = styled.div`
 `;
 
 const IntroCard = styled.div`
-    /* border: 2px solid red; */
     width: 60%;
     padding: 10% 3%;
+    // can't minimize then 520px...
     min-width: 520px;
 
     @media (max-width: 960px) {
-        order: 2;
+        order: 2;   // will change the order of the element in smaller screens...
         width: 80%;
         margin-inline: auto;
         padding: 0;
@@ -111,11 +115,16 @@ const IntroCard = styled.div`
 `;
 
 const Hello = styled.h2`
+    // when screens are smaller.
+    @media (max-width: 568px) {
+        font-size: 1em;
+    }
     span{
         opacity: .7;
         font-size: 1.5em;
         cursor: pointer;
         display: inline-block;
+        // waving...👋🏻
         animation: wave 2.5s ease-in-out 1s infinite;
         transform-origin: 70% 70%;
 
@@ -129,21 +138,51 @@ const Hello = styled.h2`
             60% { transform: rotate( 0.0deg) } 
             100% { transform: rotate( 0.0deg) }
         }
+
     }
 `;
 
 const Name = styled.h1`
     font-size: 3em;
     word-spacing: .1em;
+
+    @media (max-width: 568px) {
+        font-size: 1.5em;
+    }   
 `;
 
 const TypingIntro = styled.div`
     margin-top: .75em;
     opacity: .45;
-    display: inline-block;
-    white-space: nowrap;
+    white-space: nowrap;    // to bring it on single line...
     font-weight: 500;
     font-size: 1.2em;
+    
+    .Typewriter{
+      display: inline-block;
+      position: relative;
+    }
+
+    .typewriter_cursor::after{
+        content: '';
+        width: 10px;
+        position: absolute;
+        border-bottom: 5px solid #33aa29;
+        top: 78%;
+        animation: blink .5s step-end infinite;
+    }
+
+    @keyframes blink {
+      from, to{border-color: transparent}
+      50%{background-color: #33aa29}
+    }
+    @media (max-width: 568px) {
+        font-size: .75em;
+    }
+
+    @media (max-width: 440px) {
+        font-size: .55em;
+    }
 
     @media (max-width: 530px){
         white-space: normal;
@@ -155,7 +194,11 @@ const TypingIntro = styled.div`
 const DetailedIntro = styled.p`
     margin-top: 1em;
     opacity: .6;
-    font-size: 1.10em;
+    font-size: 1.1em;
+
+    @media (max-width: 568px) {
+        font-size: .75em;
+    }
 
     #coffee{
         position: relative;
@@ -167,7 +210,6 @@ const Cover = styled.div`
     width: 45%;
     min-width: 520px;
     padding: 2em 0 0 1em;
-    /* border: 2px solid red; */
     @media(max-width: 960px){
         order: 1;
         margin-inline: auto;
@@ -181,13 +223,7 @@ const Cover = styled.div`
 `;
 
 const CalltoAction = styled.div`
-    padding: 2rem 0;
-    /* border: 2px solid red; */
-    @media (max-width: 960px) {
-        /* display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap; */
-    }
+    padding: .75rem 0;
 `;
 
 const Button = styled.button`
@@ -218,5 +254,4 @@ const Button = styled.button`
         background-color: ${props => props.inverted ? "transparent": "#76b687"};
         color: ${props => props.inverted ? "white": "black"};
     }
-
 `;

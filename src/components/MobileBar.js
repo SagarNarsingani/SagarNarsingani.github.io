@@ -33,28 +33,31 @@ export const MobileBar = () => {
 }
 
 const Container = styled.div`
-    position: fixed;
+    position: fixed;    // to make it floating in the middle of screen...
     width: 100%;
-    bottom: 10%;
-    display: none;
-    text-align: center;
+    bottom: 10%;        // positioning...
+    display: none;      // for bigger screens...
+    text-align: center;     // making the main bar centered...
     color: white;
+    z-index: 1;         // to bring the container little bit down on z index...
 
+    // show it for mobile screens...
     @media (max-width: 830px) {
         display: block;
     }
 `;
 
 const MobileOptions = styled.div`
+    // mainly to make things vertically centered...
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-    max-width: 30%;
-    background-color: rgb(54, 55, 70, 0.9);
+    background-color: rgba(54, 55, 70, 0.9);
     padding: .75rem 0em;
     box-shadow: 23px 23px 90px 1px rgba(0,0,0,.55);
-    backdrop-filter: blur(10px);
+    // making bg blur...
+    backdrop-filter: blur(5px);
     margin: auto;
 
     @media screen {

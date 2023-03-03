@@ -24,7 +24,7 @@ export const Navbar = () => {
 const Conrainer = styled.div`
     background-color: #363746;             // for background color
     position: fixed;                      // for keeping it on top of other elements
-    right: 0; left: 0;
+    right: 0; left: 0;                   // positioning...
     display: flex;                       // for aligning the title and options.
     align-items: center;                // for aligning the title and options vertically
     width: 100%;                       // making it full width
@@ -42,17 +42,20 @@ const Title = styled.span`
     font-size: 1.5em;               
     font-weight: 900;
     font-family: 'Sacramento', cursive;
+    // hover effect...
     transition: color .8s ease-in-out;
     
     .left-arrow {
         color: #76b687;
         margin-right: .5em;
+        // hover effect...
         transition: color .8s ease-in-out;
     }
     
     .right-arrow {
         color: #76b687;
         margin-left: .5em;
+        // hover effect...
         transition: color .8s ease-in-out;
     }
     
@@ -71,16 +74,19 @@ const Heading = styled.div`
     white-space: nowrap;           // for the text to be in one line
     position: relative;           // for the after element to be positioned relative to the parent
     letter-spacing: 1.5px;
+    // typewritter effect...
     animation: slideIn 3.5s steps(40, end);
     
     // for the blinking cursor
     &::after{
         content: '';
         width: 10px;
-        position: absolute;
         border-bottom: 5px solid #76b687;
+        // positioning...
+        position: absolute;
         top: 78%;
         right: .5%;
+        // blinking animation...
         animation: blink .5s step-end infinite;
     }
     
@@ -94,18 +100,20 @@ const Heading = styled.div`
         50%{background-color: #76b687}
     }
 
+    // handling it for smaller screens...
     @media(max-width: 830px) {
         display: block;
         margin-inline: auto;
     }
-`
+    `
 
 const Options = styled.ul`
     font-weight: 500;
     font-size: 1.1em;
     position: absolute;     // needed to shift the options to the right.
     right: 1rem;
-
+    
+    // handling it for smaller screens...
     @media(max-width: 830px) {
         display: none;
         right: 0;
@@ -117,8 +125,11 @@ const Option = styled.li`
     opacity: .45;
     margin-inline: 1em;
     cursor: pointer;
+    // different font for options...
+    font-family: 'Fira Code', monospace;
+    // for after elements...
     position: relative;
-    transition: color 1s;
+    transition: color 1s;   // hover...
 
     &::after{
         content: '';
@@ -127,16 +138,18 @@ const Option = styled.li`
         background-color: #76b687;
         position: absolute;
         top: 0;
-        left: -10%;
+        left: -10%; // to add padding...
         transition: width 300ms, height 100ms 300ms;
     }
     
+    // hover effect on background...
     &:hover::after {
-        width: 120%;
+        width: 120%;    // padding...
         height: 100%;
         z-index: -1;
     }
 
+    // hover effect on text...
     &:hover { 
         color: #000;
         opacity: 1;

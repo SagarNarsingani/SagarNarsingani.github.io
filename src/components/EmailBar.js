@@ -16,32 +16,37 @@ export const EmailBar = () => {
 
 
 const Container = styled.div`
-    position: fixed;
-    display: inline-block;
-    top: 0;
-    right: 1em;
-    transform: rotate(180deg);
+    position: fixed;              // to stick email bar at fixed position
+    // positioning...
+    top: 0;                      
+    right: 1em;               
 
+    transform: rotate(180deg);    // To rotate the line.
+
+    // just handling it for mobile screens
     @media (max-width: 780px) {
       display: none;
     }
 
     ul{
-      display: inline-block;
-      list-style-type: none;
-      color: white;
-      padding: 1.33em;
-      padding-bottom: 0;
-      position: relative;
-      /* border: 2px solid red; */
-      width: 0;
+      list-style-type: none;  // removing dots that come before li elements.
+      color: white;           
+      padding: 1.33em;    // to make it equally far from the boundary as Social Bar.
+      padding-bottom: 0;  // don't want it in the bottom.
+      position: relative; // for after element.
+      width: 0;           // just to handle chaos...😬
     }
 
-    a{
+    a{  
+        // removing default link styling...
         text-decoration: none;
         text-decoration-skip-ink: auto;
+
+        // whatever parent's(li) color is...
         color: inherit;
     }
+
+    // for the line before email id...
     ul::after{
         content: "";
         background-color: rgba(255, 255, 255, 1);
@@ -49,20 +54,25 @@ const Container = styled.div`
         width: 1px;
         height: 10em;
         opacity: .7;
+        // positioning...
         top: 0;
         right: 10em;
         left: 0;
+        // make it centered...
         margin-inline: auto;
     }
 
     li{
-      margin-bottom: 1em;
+      margin-bottom: 1em; // gap between line and email
+      // different font for email...
+      font-family: 'Fira Code', monospace;
       opacity: .7;
-      transform: rotate(-90deg);
+      transform: rotate(-90deg); // rotate the email...
       cursor: pointer;
+
+      // for hover effect...
       position: relative;
       top: 0;
-      /* width: 0; */
       transition: top ease 0.5s, color ease 0.5s;
 
       &:hover{
