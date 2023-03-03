@@ -45,19 +45,19 @@ const Title = styled.span`
     transition: color .8s ease-in-out;
     
     .left-arrow {
-        color: #33aa29;
+        color: #76b687;
         margin-right: .5em;
         transition: color .8s ease-in-out;
     }
     
     .right-arrow {
-        color: #33aa29;
+        color: #76b687;
         margin-left: .5em;
         transition: color .8s ease-in-out;
     }
     
     &:hover {
-        color: #33aa29;
+        color: #76b687;
         .left-arrow, .right-arrow { color: #fff; }
     }
     
@@ -78,7 +78,7 @@ const Heading = styled.div`
         content: '';
         width: 10px;
         position: absolute;
-        border-bottom: 5px solid #33aa29;
+        border-bottom: 5px solid #76b687;
         top: 78%;
         right: .5%;
         animation: blink .5s step-end infinite;
@@ -91,7 +91,7 @@ const Heading = styled.div`
 
     @keyframes blink {
         from, to{border-color: transparent}
-        50%{background-color: #33aa29}
+        50%{background-color: #76b687}
     }
 
     @media(max-width: 830px) {
@@ -124,7 +124,7 @@ const Option = styled.li`
         content: '';
         width: 0px;
         height: 2px;
-        background-color: #33aa29;
+        background-color: #76b687;
         position: absolute;
         top: 0;
         left: -10%;
