@@ -16,38 +16,49 @@ export const About = () => {
                 <h1>About Me</h1>
             </RoughNotation>
         </div>
-
-        <div className="about">
-            <p>
-                My name is Sagar Narsingani. I am Computer Science graduate (2023). 
-                I have interest in Problem Solving, Web Development & Software Development. 
-                I compiled my first programm back in 2019 (the first year of my graduation).
-                In next four years, I have learnt many things related to Computer Science. 
-                From complete beginner to the pro level, From HTML level to Machine Learning, 
-                the journey so far has been full with lot of learnings.
-            </p>
-            <br/>
-            <p>
-                Currently, I am working on Human Identification using Gait Recognition as my final year project.
-                I am also working on some personal side projects, to help myself grow more. I am working on making myself
-                better every single day.
-            </p>
-            <br/>
-            <p> Here is my educational background: </p>
-            <br/>
-            <ul className="education">
-                <li>
-                    <h4>Computer Science & Engineering</h4>
-                    <span>Pandit Deendayal Energy University | (2019 - 2023)</span>
-                    <ul>
-                        <li><BiRightArrow className="bullet"/> Studied Computer fundamentals like programming, DBMS, OS, etc.</li>
-                        <li><BiRightArrow className="bullet"/> Got 9.79 CGPA out of 10.</li>
-                        <li><BiRightArrow className="bullet"/> Got Merit Cum Means(MCM) Scholarship.</li>
-                    </ul>
-                </li>
-            </ul>
+        <div className="details">
+            <div className="about">
+                <p>
+                    My name is Sagar Narsingani, and I am currently pursuing a degree in Computer Science (almost complete 🙂). 
+                    I have a keen interest in Problem Solving, Web Development, and Software Development, and have been learning about these topics for the past four years.
+                    Although I am not yet an expert, I have gained a solid foundation in various areas of computer science, 
+                    starting from my first program in 2019 to more advanced topics like Machine Learning.
+                </p>
+                
+                <p>
+                    As part of my final year project, I am currently exploring Human Identification using Gait Recognition, 
+                    and I am also working on personal projects to further enhance my skills. 
+                    I am committed to continuous learning and improvement, 
+                    and am excited to see where my journey in the field of computer science will take me.
+                </p>
+                
+                <p> Here is my educational background: </p>
+                
+                <ul className="education">
+                    <li className="education-li">
+                        <h4>Computer Science & Engineering</h4>
+                        <span>Pandit Deendayal Energy University | (2019 - 2023)</span>
+                        <ul>
+                            <li><BiRightArrow className="bullet"/> Studied Computer fundamentals like programming, DBMS, OS, etc.</li>
+                            <li><BiRightArrow className="bullet"/> Got 9.79 CGPA out of 10.</li>
+                            <li><BiRightArrow className="bullet"/> Got Merit Cum Means(MCM) Scholarship.</li>
+                        </ul>
+                    </li>
+                    <li className="education-li">
+                        <h4>Higher Secondary Eduction</h4>
+                        <span>Gujarat Secondary and Higher Secondary Education Board | (2017 - 2019)</span>
+                        <ul>
+                            <li><BiRightArrow className="bullet"/> Studied Physics, Maths and Chemistry.</li>
+                            <li><BiRightArrow className="bullet"/> Scored 89% in the board examination.</li>
+                            <li><BiRightArrow className="bullet"/> Got the 1st Rank in Aravalli District.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div className="image">
+                Image
+            </div>
         </div>
-
     </Container>
   )
 }
@@ -79,6 +90,8 @@ const Container = styled.div`
         width: 50%;
         color: rgba(255, 255, 255, 0.7);
         opacity: .7;
+        p{margin-bottom: .75em;}
+        display: inline-block;
     }
 
     .education{
@@ -97,10 +110,30 @@ const Container = styled.div`
             list-style: none;
         }
 
+        .education-li{
+            margin-bottom: 1em;
+        }
+
         .bullet{
             color: #76b687;
             font-size: .6em;
             margin-bottom: .15em;
         }
+    }
+
+    .details{
+        display: flex;
+        justify-content: space-around;
+    }
+    .image{
+        border-radius: 5px;
+        align-self: center;
+        background-color: rgba(0, 0, 0, .5);
+        line-height: 320px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        height: 320px;
+        width: 300px;
     }
 `;
