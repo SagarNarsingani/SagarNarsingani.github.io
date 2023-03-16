@@ -1,22 +1,15 @@
 import styled from "styled-components"
-import { RoughNotation } from "react-rough-notation";
 import { BiRightArrow } from "react-icons/bi";
+import { Title } from "./Title";
 
 export const About = () => {
   return (
-    <Container>
-        <div className="title">
-            <RoughNotation 
-                type="underline" 
-                show={true} 
-                iterations={2}
-                strokeWidth={2}
-                color={"#76b687"}
-            >
-                <h1>About Me</h1>
-            </RoughNotation>
-        </div>
+    <Container className='container'>
+        <Title title='About Me'/>
         <div className="details">
+            <div className="image">
+                Image
+            </div>
             <div className="about">
                 <p>
                     My name is Sagar Narsingani, and I am currently pursuing a degree in Computer Science (almost complete 🙂). 
@@ -55,9 +48,6 @@ export const About = () => {
                     </li>
                 </ul>
             </div>
-            <div className="image">
-                Image
-            </div>
         </div>
     </Container>
   )
@@ -65,69 +55,45 @@ export const About = () => {
 
 
 const Container = styled.div`
-    /* border: 2px solid red; */
-    width: 85%;
-    letter-spacing: .25em;
-    margin-inline: auto;
-    padding-block: 3em;
-    color: white;
-
-    .title{
-        width: fit-content;
-        padding: 1em;
-    
-        h1{
-            font-size: 1.6em;
-            font-weight: 500;
-        }
-    }
 
     .about{
-        padding: 1em;
         font-size: 1.175em;
-        /* border: 2px solid red; */
         letter-spacing: normal;
-        width: 50%;
+        width: 55%;
         color: rgba(255, 255, 255, 0.7);
         opacity: .7;
         p{margin-bottom: .75em;}
         display: inline-block;
+
+        @media (max-width: 960px) {
+            width: 100%;
+        }
     }
 
     .education{
-        list-style: none;
-
         h4{
             font-weight: 500;
             color: #76b687;
         }
 
-        span{
-            font-size: 0.85em;
+        @media (max-width: 960px) {
+            margin-left: 1.75em;
         }
 
-        ul {
-            list-style: none;
-        }
-
-        .education-li{
-            margin-bottom: 1em;
-        }
-
-        .bullet{
-            color: #76b687;
-            font-size: .6em;
-            margin-bottom: .15em;
-        }
+        span{ font-size: 0.85em; }
+        .education-li{ margin-bottom: 1em; }
     }
 
     .details{
+        padding: 1em;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
+
     .image{
         border-radius: 5px;
-        align-self: center;
+        margin-top: 2.5em;
         background-color: rgba(0, 0, 0, .5);
         line-height: 320px;
         text-align: center;
@@ -135,5 +101,11 @@ const Container = styled.div`
         backdrop-filter: blur(10px);
         height: 320px;
         width: 300px;
+
+        @media (max-width: 960px) {
+            display: block;
+            margin-bottom: 2em;
+            margin-inline: auto;
+        }
     }
 `;

@@ -10,7 +10,7 @@ import CoverImage from '../assets/landing-image.jsx'
 export const Landing = () => {
   console.log(window.innerWidth);  
   return (
-    <Container>
+    <Container className='container'>
         <IntroCard>
             <Hello>
                 Hey
@@ -82,15 +82,8 @@ export const Landing = () => {
 
 
 const Container = styled.div`
-    // because of navbar...
-    padding-top: 3em;
-    color: white;
-    // making space for the side-bars...
-    width: 85%;
-    margin-inline: auto;
-    letter-spacing: .25em;
     display: flex;
-
+    align-items: center;
     // for smaller screens...
     @media (max-width: 960px) {
         flex-wrap: wrap;
@@ -101,8 +94,6 @@ const Container = styled.div`
 const IntroCard = styled.div`
     width: 60%;
     padding: 10% 3%;
-    // can't minimize then 520px...
-    min-width: 520px;
 
     @media (max-width: 960px) {
         order: 2;   // will change the order of the element in smaller screens...
@@ -116,9 +107,8 @@ const IntroCard = styled.div`
 
 const Hello = styled.h2`
     // when screens are smaller.
-    @media (max-width: 568px) {
-        font-size: 1em;
-    }
+    @media (max-width: 1145px) { font-size: 1.25em; }
+    @media (max-width: 568px) { font-size: 1em; }
     span{
         opacity: .7;
         font-size: 1.5em;
@@ -127,7 +117,7 @@ const Hello = styled.h2`
         // waving...👋🏻
         animation: wave 2.5s ease-in-out 1s infinite;
         transform-origin: 70% 70%;
-
+        
         @keyframes wave {
             0% { transform: rotate( 0.0deg) }
             10% { transform: rotate(14.0deg) }  
@@ -138,16 +128,20 @@ const Hello = styled.h2`
             60% { transform: rotate( 0.0deg) } 
             100% { transform: rotate( 0.0deg) }
         }
-
+        
     }
 `;
 
 const Name = styled.h1`
     font-size: 3em;
     word-spacing: .1em;
+    
+    @media (max-width: 1145px) { 
+        font-size: 2em; 
+    }  
 
-    @media (max-width: 568px) {
-        font-size: 1.5em;
+    @media (max-width: 568px) { 
+        font-size: 1.5em; 
     }   
 `;
 
@@ -159,10 +153,10 @@ const TypingIntro = styled.div`
     font-size: 1.2em;
     
     .Typewriter{
-      display: inline-block;
-      position: relative;
+        display: inline-block;
+        position: relative;
     }
-
+    
     .typewriter_cursor::after{
         content: '';
         width: 10px;
@@ -171,45 +165,53 @@ const TypingIntro = styled.div`
         top: 78%;
         animation: blink .5s step-end infinite;
     }
-
+    
     @keyframes blink {
-      from, to{border-color: transparent}
-      50%{background-color: #33aa29}
-    }
-    @media (max-width: 568px) {
-        font-size: .75em;
+        from, to{border-color: transparent}
+        50%{background-color: #33aa29}
     }
 
-    @media (max-width: 440px) {
-        font-size: .55em;
+    @media (max-width: 1145px) { 
+        font-size: 1em; 
     }
 
+    @media (max-width: 568px) { 
+        font-size: .75em; 
+    }
+    
+    @media (max-width: 440px) { 
+        font-size: .55em; 
+    }
+    
     @media (max-width: 530px){
         white-space: normal;
         width: 80%;
         margin-inline: auto;
     }
-`;
+    `;
 
 const DetailedIntro = styled.p`
     margin-top: 1em;
     opacity: .6;
     font-size: 1.1em;
-
-    @media (max-width: 568px) {
-        font-size: .75em;
+    
+    @media (max-width: 1145px) { 
+        font-size: 1em; 
     }
 
+    @media (max-width: 568px) { 
+        font-size: .75em; 
+    }
+    
     #coffee{
         position: relative;
         top: .15em;
     }
-`;
+    `;
 
 const Cover = styled.div`
-    width: 45%;
-    min-width: 520px;
-    padding: 2em 0 0 1em;
+    width: 520px;
+    padding-inline-start: 1em;
     @media(max-width: 960px){
         order: 1;
         margin-inline: auto;
@@ -217,10 +219,10 @@ const Cover = styled.div`
         padding-inline: 1em;
     }
 
-    @media(max-width: 420px) {
-        min-width: 240px;
+    @media(max-width: 420px) { 
+        min-width: 240px; 
     }
-`;
+    `;
 
 const CalltoAction = styled.div`
     padding: .75rem 0;

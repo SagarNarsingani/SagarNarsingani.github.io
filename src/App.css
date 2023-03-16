@@ -1,0 +1,17 @@
+.container {
+    width: 85%;
+    letter-spacing: .25em;
+    margin-inline: auto;
+    padding-block: 3em;
+    color: white;
+}
+
+.bullet{
+    color: #76b687;
+    font-size: .6em;
+    margin-bottom: .15em;
+}
+
+ul{
+    list-style: none;
+}

@@ -1,105 +1,84 @@
-import React from 'react'
+import styled from 'styled-components';
+import { SkillBar } from './SkillBar';
+import { BiRightArrow } from "react-icons/bi";
+import { Title } from './Title';
 
-// export const Skills = () => {
-//   return (
-//     <div>Skills</div>
-//   )
-// }
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-// import faker from 'faker';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-export const options = {
-  responsive: true,
-  plugins: {
-    legend:{
-        display: false
-    },
-    tooltip:{
-        displayColors: false,
-        bodyFont: {
-            size:14,
-            family: "'Jost', 'sans-serif'"
-        },
-        callbacks: {
-            label: (context) => {
-                if(context.parsed.y === 3) return "Expert";
-                if(context.parsed.y > 2) return "Improving Constantly";
-                if(context.parsed.y === 2) return "Intermediate";
-                if(context.parsed.y  > 1) return "Improving Constantly";
-                if(context.parsed.y  === 1) return "Beginner";
-            },
-            labelTextColor: (_) => "#76b687"
-        }
-    }
-  },
-  scales: {
-    y: {
-        ticks: {
-            callback: (val, _i) => {
-                if(val===1) return 'Beginner';
-                if(val===2) return 'Intermediate';
-                if(val===3) return 'Expert';
-                return ''
-            }, 
-            color: 'rgba(255, 255, 255, .3)',
-            font: {
-                size: 15,
-            },
-            suggestedMax: 5,
-            suggestedMin: 0,
-        },
-        grid: {
-            color: 'rgba(255, 255, 255, .05)',
-        },
-        beginAtZero: true,
-        grace: '5%'
-    },
-    x:{
-      grid:{
-          color: 'rgba(255, 255, 255, .1)'
-      }, 
-      ticks: {
-        color: 'rgba(255, 255, 255, .3)',
-        font: { size: 15 }
-      }
-    }
-  }, 
-};
-
-const labels = ['C++', 'JavaScript', 'Node / Express', 'React.js', 'MongoDB'];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      data: [2.5, 2.7, 2, 2, 2],
-      backgroundColor: 'transparent',
-      borderColor: "#76b687",
-      borderWidth: 1,
-      barThickness: 50,
-      barPercentage: .5
-    }
-  ],
-};
 
 export function Skills() {
-  return <Bar options={options} data={data} style={{width: "50%", height: "600px", marginInline: "auto"}}/>;
+  return (
+    <Container className='container'>
+      <Title title='Skills'/>
+      <div className='skills'>
+        <SkillBar/>
+        <div className='description'>
+          <p>
+            I am committed to continual growth and strive to expand my knowledge and skills in the field of technology. 
+            Whether through learning about new technologies or building upon my existing knowledge, 
+            I am dedicated to the pursuit of professional development.
+          </p>
+          <p> Some of the key skills that I have acquired to date and on which I am currently working include, </p>
+          <div className='skill-lists'>
+            <ul>
+                <li><BiRightArrow className="bullet"/> JavaScript </li>
+                <li><BiRightArrow className="bullet"/> ReactJs </li>
+                <li><BiRightArrow className="bullet"/> NodeJs / ExpressJs </li>
+                <li><BiRightArrow className="bullet"/> MongoDB </li>
+            </ul>
+
+            <ul>
+                <li><BiRightArrow className="bullet"/> C++ </li>
+                <li><BiRightArrow className="bullet"/> Problem Solving </li>
+                <li><BiRightArrow className="bullet"/> Computer Fundamentals </li>
+                <li><BiRightArrow className="bullet"/> Machine Learning </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Container>
+  );
 }
+
+const Container = styled.div`
+  .skills{
+    display: flex;
+    justify-content: space-evenly;
+
+    @media (max-width: 1349px) { flex-wrap: wrap; }
+  }
+  
+  .description{
+    padding: 1em;
+    align-self: center;
+    width: 50%;
+    margin-left: 1.5em;
+    font-size: 1.175em;
+    letter-spacing: normal;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: .7;
+    p{margin-bottom: .75em;}
+    display: inline-block;
+    
+    @media (max-width: 1349px){
+      display: block;
+      margin-top: .5em;
+      text-align: center;
+      margin-inline: auto;
+      width: 100%;
+      padding-inline: 2em;
+    }
+
+    @media (max-width: 629px){ 
+      text-align: left;
+      margin-left: 2em;
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+  .skill-lists{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: .9em;
+    text-align: left;
+  }
+`
