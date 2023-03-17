@@ -3,7 +3,8 @@ import { RoughNotation } from 'react-rough-notation';
 
 const style = {
     width: 'fit-content',
-    padding: '1em'
+    padding: '1em',
+    marginInline: 'auto'
 };
 
 const headStyle = {

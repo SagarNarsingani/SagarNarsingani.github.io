@@ -6,6 +6,8 @@ import { SocialLinks } from './components/SocialLinks';
 import { EmailBar } from './components/EmailBar';
 import { About } from './components/About';
 import { Skills } from './components/Skills';
+import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <EmailBar/>
       <About/>
       <Skills/>
+      <Contact/>
+      <Footer/>
     </div>
   );
 }
