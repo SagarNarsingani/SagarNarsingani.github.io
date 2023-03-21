@@ -68,6 +68,11 @@ const Container = styled.div`
         @media (max-width: 960px) {
             width: 100%;
         }
+
+        @media (max-width: 500px) {
+           text-align: justify;
+           font-size: .9em;
+        }
     }
 
     .education{
@@ -80,8 +85,26 @@ const Container = styled.div`
             margin-left: 1.75em;
         }
 
-        span{ font-size: 0.85em; }
-        .education-li{ margin-bottom: 1em; }
+        @media (max-width: 600px) {
+            margin-left: 0;
+        }
+
+        @media (max-width: 500px) {
+            text-align: left;
+            font-size: .8em;
+        }
+
+        span{ 
+            font-size: 0.85em; 
+            @media screen {
+                font-size: .75em;
+            }
+
+        }
+        .education-li{ 
+            margin-bottom: 1em; 
+            ul{ margin-top: .5em; }
+        }
     }
 
     .details{
@@ -106,6 +129,7 @@ const Container = styled.div`
             display: block;
             margin-bottom: 2em;
             margin-inline: auto;
+            margin-top: 1em;
         }
     }
 `;

@@ -24,4 +24,6 @@ const Container = styled.div`
     .heart{
         margin-inline: .5em .75em;
     }
+
+    @media (max-width: 500px) {font-size: .75em;}
 `;

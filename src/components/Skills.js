@@ -68,10 +68,17 @@ const Container = styled.div`
     }
 
     @media (max-width: 629px){ 
-      text-align: left;
-      margin-left: 2em;
+      text-align: justify;
+      padding: .25em;
       width: 100%;
-      margin-top: 0;
+      font-size: .9em;
+      margin-top: .25em;
+    }
+
+    @media (max-width: 350px){ 
+      text-align: justify;
+      padding: 0.25em;
+      margin-top: .25em;
     }
   }
 
@@ -80,5 +87,12 @@ const Container = styled.div`
     justify-content: space-evenly;
     font-size: .9em;
     text-align: left;
+    
+    @media (max-width: 350px){ 
+      font-size: .75em;
+      justify-content: space-between;
+      gap: 1em;
+      white-space: nowrap;
+    }
   }
 `

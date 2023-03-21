@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Leetstat-CLI",
+        "description": "A CLI tool to get all your important statistics in your terminal only, so that the next time you want to have a quick look at your stats you don't have to open your browser.",
+        "image" : "https://drive.google.com/uc?export=view&id=1Vo9BBFiQNpwdVb4p5igO8sdW4jpVwDoG",
+        "skills": ["Node", "JavaScript", "CLI"],
+        "link": "https://www.npmjs.com/package/leetstat-cli",
+        "github": "https://github.com/SHNarsingani24/leetstat-cli"
+    },
+    {
+        "title": "Disney+ Hotstar",
+        "description": "A frontend clone of Disney+ Hotstar website, which I created while learning react. It uses Firebase for storing the data as well as for Google authentication.",
+        "image" : "https://drive.google.com/uc?export=view&id=1XX7m9j0LB55zLdBrZeO6fcL-B_Wg1eSm",
+        "skills": ["React", "Firebase", "styled-components"],
+        "link": "https://disneyplus-clone-7990a.web.app/home",
+        "github": "https://github.com/SHNarsingani24/disney-hotstar-clone"
+    },
+    {
+        "title": "Keeper Web App",
+        "description": "A web application to keep all of your important notes saved at one place. It allows you to create, access, delete and update your notes.",
+        "image" : "https://drive.google.com/uc?export=view&id=1f8rM9qdGtKQRlietOfu8scXYuhoJOZW5",
+        "skills": ["React", "Node", "MongoDB", "Express"],
+        "link": "/",
+        "github": "https://github.com/Cloud-LAB-Project/Keeper-App"
+    },
+    {
+        "title": "Human Gait Recognition",
+        "description": "A Machine learning project to recognize person based on his / her walking manner. I worked on this project in my final year of graduation.",
+        "image" : "https://drive.google.com/uc?export=view&id=1TWs40qtIzWn7ObPKF7iSvJvqoOqk7RFX",
+        "skills": ["Machine Learning", "Image Processing"],
+        "link": "/",
+        "github": "/"
+    }
+]
