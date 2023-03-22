@@ -53,7 +53,7 @@ const MobileOptions = styled.div`
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-    background-color: rgba(54, 55, 70, 0.9);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: .75rem 0em;
     box-shadow: 23px 23px 90px 1px rgba(0,0,0,.55);
     // making bg blur...

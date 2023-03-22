@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export const Contact = () => {
   return (
-    <Container className="container">
+    <Container className="container" id="contact-me">
         <Title title="Contact"/>
         <div className='invite'>
             <p>

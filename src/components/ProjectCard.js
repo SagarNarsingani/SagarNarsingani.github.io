@@ -4,19 +4,21 @@ import { MdOutlineOpenInNew } from "react-icons/md";
 import {SiGithub} from 'react-icons/si'
 
 export const ProjectCard = ({project}) => {
+  
+  const openProject = (link) => {
+    window.open(link, '_blank', 'noopener noreferrer');
+  }
   return (
     <a href={project.github} target={"_blank"} rel='noopener noreferrer'>
         <Container>
             <SiGithub className='git-icon'/>
-            <div className='image'>
-                <a href={project.link} target={"_blank"} rel='noopener noreferrer'>
-                    <img
-                        height={125}
-                        width={125}
-                        src={project.image}
-                        alt={project.title}
-                    />
-                </a>
+            <div className='image' onClick={(_) => openProject(project.link)}>
+                <img
+                    height={125}
+                    width={125}
+                    src={project.image}
+                    alt={project.title}
+                />
                 <MdOutlineOpenInNew className='icon'/>
             </div>
             <div className='desc'>
@@ -25,7 +27,7 @@ export const ProjectCard = ({project}) => {
             </div>
             <div className='skills'>
                 <ul className='skill-list'>
-                    {project.skills.map(skill => <li>{skill}</li>)}
+                    {project.skills.map((skill, id) => <li key={"skill#"+id}>{skill}</li>)}
                 </ul>
             </div>
         </Container>
@@ -86,7 +88,8 @@ const Container = styled.div`
             font-size: 1.5em;
             font-weight: 900;
             opacity: 1;
-            color: white;
+            color: rgba(255, 255, 255, 1);
+            z-index: 10000;
         }
     }
 

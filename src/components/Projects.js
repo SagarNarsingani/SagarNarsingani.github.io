@@ -5,10 +5,10 @@ import projects from '../assets/project_data.json'
 
 export const Projects = () => {
   return (
-    <Container className="container">
+    <Container className="container" id="my-projects">
     <Title title={"Projects"}/>
         <div className="projects">
-            {projects.map(project => <ProjectCard project={project}/>)}
+            {projects.map((project, id) => <ProjectCard project={project} key={"project#"+id}/>)}
         </div>    
     </Container>
   )

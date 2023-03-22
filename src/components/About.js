@@ -4,11 +4,14 @@ import { Title } from "./Title";
 
 export const About = () => {
   return (
-    <Container className='container'>
+    <Container className='container' id="about-me">
         <Title title='About Me'/>
         <div className="details">
             <div className="image">
-                Image
+                <img
+                    src={'/profile.jpg'}
+                    alt={'profile'}
+                />
             </div>
             <div className="about">
                 <p>
@@ -115,15 +118,11 @@ const Container = styled.div`
     }
 
     .image{
-        border-radius: 5px;
+        border-radius: 10px;
         margin-top: 2.5em;
-        background-color: rgba(0, 0, 0, .5);
-        line-height: 320px;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(10px);
-        height: 320px;
-        width: 300px;
+        margin-left: 2em;
+        contain: content;
+        height: 225px;
 
         @media (max-width: 960px) {
             display: block;

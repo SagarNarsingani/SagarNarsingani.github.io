@@ -12,8 +12,8 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #363746;
-  scroll-behavior: none;
+  background-color: #000000;
+  scroll-behavior: smooth;
 }
 
 code {

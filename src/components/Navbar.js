@@ -2,6 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const Navbar = () => {
+
+  const scrollTo = (section, event) => {
+      const component = document.getElementById(section);
+      const opts = document.querySelectorAll('.opt');
+      opts.forEach(opt => opt.classList.remove('is-active'));
+      event.target.classList.add('is-active');
+    component.scrollIntoView({behavior: "smooth", block: "start"});
+  }
+
   return (
     <Conrainer>
         <Title>
@@ -12,17 +21,17 @@ export const Navbar = () => {
             </Heading>
         </Title>
         <Options>
-            <Option>About</Option>
-            <Option>Projects</Option>
-            <Option>Skills</Option>
-            <Option>Contact</Option>
+            <Option className='opt' onClick={(e) => scrollTo('about-me', e)}>About</Option>
+            <Option className='opt' onClick={(e) => scrollTo('my-skills', e)}>Skills</Option> 
+            <Option className='opt' onClick={(e) => scrollTo('my-projects', e)}>Projects</Option>
+            <Option className='opt' onClick={(e) => scrollTo('contact-me', e)}>Contact</Option>
         </Options>
     </Conrainer>
   );
 }
 
 const Conrainer = styled.div`
-    background-color: #363746;             // for background color
+    background-color: #000000;             // for background color
     position: fixed;                      // for keeping it on top of other elements
     right: 0; left: 0;                   // positioning...
     display: flex;                       // for aligning the title and options.
@@ -118,6 +127,17 @@ const Options = styled.ul`
         display: none;
         right: 0;
     }
+
+    .is-active::after {
+        width: 120%;   
+        height: 100%;
+        z-index: -1;
+    }
+    .is-active { 
+        color: #000;
+        opacity: 1;
+    }
+
 `;
 
 const Option = styled.li`

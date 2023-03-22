@@ -8,7 +8,6 @@ import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { ProjectCard } from './components/ProjectCard';
 import { Projects } from './components/Projects';
 
 function App() {

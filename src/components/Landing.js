@@ -8,7 +8,6 @@ import 'react-tooltip/dist/react-tooltip.css'
 import CoverImage from '../assets/landing-image.jsx'
 
 export const Landing = () => {
-  console.log(window.innerWidth);  
   return (
     <Container className='container'>
         <IntroCard>
@@ -161,7 +160,7 @@ const TypingIntro = styled.div`
         content: '';
         width: 10px;
         position: absolute;
-        border-bottom: 5px solid #33aa29;
+        border-bottom: 5px solid #76b687;
         top: 78%;
         animation: blink .5s step-end infinite;
     }
@@ -190,7 +189,7 @@ const TypingIntro = styled.div`
     }
     `;
 
-const DetailedIntro = styled.p`
+const DetailedIntro = styled.div`
     margin-top: 1em;
     opacity: .6;
     font-size: 1.1em;

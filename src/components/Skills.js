@@ -6,7 +6,7 @@ import { Title } from './Title';
 
 export function Skills() {
   return (
-    <Container className='container'>
+    <Container className='container' id='my-skills'>
       <Title title='Skills'/>
       <div className='skills'>
         <SkillBar/>
