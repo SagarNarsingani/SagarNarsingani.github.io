@@ -1,12 +1,45 @@
+import { useRef } from 'react';
+
 import styled from 'styled-components';
 import { SkillBar } from './SkillBar';
 import { BiRightArrow } from "react-icons/bi";
+import { motion, useScroll, useMotionValueEvent, useAnimation } from "framer-motion";
+
 import { Title } from './Title';
 
-
 export function Skills() {
+
+  const ref = useRef();
+  const control = useAnimation();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["100px end", "75% start"]
+  });
+  
+  useMotionValueEvent(scrollYProgress, "change", (val) => {
+    if(val>0 && val<1){
+        document.querySelector('.my-skills').classList.add('is-active');
+        control.start('visible');
+    } else {
+        document.querySelector('.my-skills').classList.remove('is-active');
+        control.start('hidden');
+    }
+  });
+
   return (
-    <Container className='container' id='my-skills'>
+    <Container 
+        as={motion.div} 
+        variants={{
+            visible: {opacity: 1, x:0, transition: {duration: .25, type: "spring",  ease: "easeOut"}},
+            hidden: {opacity: 0, x:"100%",transition: {duration: .25, ease: "easeIn"}}
+        }}
+        animate={control}
+        initial={{opacity: 0}}  
+        ref={ref} 
+        className='container'
+        id='my-skills'
+    >
       <Title title='Skills'/>
       <div className='skills'>
         <SkillBar/>

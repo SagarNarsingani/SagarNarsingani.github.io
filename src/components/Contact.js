@@ -1,10 +1,42 @@
-import { Title } from './Title';
-import React from 'react'
+import { useRef } from 'react'
 import styled from 'styled-components'
+import { motion, useScroll, useMotionValueEvent, useAnimation } from "framer-motion";
+
+import { Title } from './Title';
 
 export const Contact = () => {
+
+  const ref = useRef();
+  const control = useAnimation();
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["100px end", "75% start"]
+  });
+  
+  useMotionValueEvent(scrollYProgress, "change", (val) => {
+    if(val>0 && val<1){
+        document.querySelector('.contact-me').classList.add('is-active');
+        control.start('visible');
+    } else {
+        document.querySelector('.contact-me').classList.remove('is-active');
+        control.start('hidden');
+    }
+  });
+
   return (
-    <Container className="container" id="contact-me">
+    <Container 
+        as={motion.div} 
+        variants={{
+            visible: {opacity: 1, y: 0, transition: { duration: .25, ease: "easeOut"}},
+            hidden: {opacity: 0, y: "10%", transition: {duration: .1}}
+        }}
+        animate={control}
+        initial={{opacity: 0}} 
+        ref={ref} 
+        className='container'
+        id='contact-me'
+    >
         <Title title="Contact"/>
         <div className='invite'>
             <p>

@@ -10,6 +10,8 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 ChartJS.register(
   CategoryScale,
@@ -103,8 +105,11 @@ export const data = {
 };
 
 export const SkillBar = () => {
-  return <Container>
-    <Bar options={options} data={data} />
+  const ref = useRef(null);
+  const inView = useInView(ref);
+
+  return <Container ref={ref}>
+    <Bar options={options}  redraw={inView} data={data} />
     <p>How I rate my self!</p>
   </Container>
 }

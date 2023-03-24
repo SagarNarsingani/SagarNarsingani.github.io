@@ -7,6 +7,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 
 import CoverImage from '../assets/landing-image.jsx'
 
+
 export const Landing = () => {
   return (
     <Container className='container'>
@@ -102,9 +103,22 @@ const IntroCard = styled.div`
         text-align: center;
         min-width: 0px;
     }
+
+   
 `;
 
 const Hello = styled.h2`
+    animation: slide-up .5s ease forwards .2s;
+    opacity: 0;
+    transform: translateY(10%);
+
+    @keyframes slide-up {
+        0%{}
+        100%{
+            transform: translateY(-10%);
+            opacity: 1;
+        }
+    }
     // when screens are smaller.
     @media (max-width: 1145px) { font-size: 1.25em; }
     @media (max-width: 568px) { font-size: 1em; }
@@ -134,7 +148,19 @@ const Hello = styled.h2`
 const Name = styled.h1`
     font-size: 3em;
     word-spacing: .1em;
+    transform: translateY(10%);
+    opacity: 0;
     
+    animation: slide-up-name 1s ease forwards 1s; 
+    
+    @keyframes slide-up-name {
+        from{}
+        to{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
     @media (max-width: 1145px) { 
         font-size: 2em; 
     }  
@@ -149,7 +175,20 @@ const TypingIntro = styled.div`
     opacity: .45;
     white-space: nowrap;    // to bring it on single line...
     font-weight: 500;
-    font-size: 1.2em;
+    font-size: 1em;
+
+    transform: translateY(10%);
+    opacity: 0;
+    
+    animation: slide-up-typing 1s ease forwards 2s; 
+    
+    @keyframes slide-up-typing {
+        from{}
+        to{
+            transform: translateY(0);
+            opacity: .45;
+        }
+    }
     
     .Typewriter{
         display: inline-block;
@@ -170,10 +209,6 @@ const TypingIntro = styled.div`
         50%{background-color: #33aa29}
     }
 
-    @media (max-width: 1145px) { 
-        font-size: 1em; 
-    }
-
     @media (max-width: 568px) { 
         font-size: .75em; 
     }
@@ -190,12 +225,24 @@ const TypingIntro = styled.div`
     `;
 
 const DetailedIntro = styled.div`
-    margin-top: 1em;
+    margin-block: 1em;
     opacity: .6;
-    font-size: 1.1em;
+
+    transform: translateY(10%);
+    opacity: 0;
+    
+    animation: slide-up-intro 1s ease forwards 2s; 
+    
+    @keyframes slide-up-intro {
+        from{}
+        to{
+            transform: translateY(0);
+            opacity: .45;
+        }
+    }
     
     @media (max-width: 1145px) { 
-        font-size: 1em; 
+        font-size: .9em; 
     }
 
     @media (max-width: 568px) { 
@@ -225,6 +272,19 @@ const Cover = styled.div`
 
 const CalltoAction = styled.div`
     padding: .75rem 0;
+
+    transform: translateX(-30%);
+    opacity: 0;
+    
+    animation: slide-up-action 1s ease forwards 2s; 
+    
+    @keyframes slide-up-action {
+        from{}
+        to{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
 `;
 
 const Button = styled.button`

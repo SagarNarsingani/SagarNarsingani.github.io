@@ -1,11 +1,45 @@
+import { useRef } from "react";
 import styled from "styled-components"
+
 import { ProjectCard } from "./ProjectCard"
 import { Title } from "./Title";
 import projects from '../assets/project_data.json'
+import { motion, useScroll, useMotionValueEvent, useAnimation } from "framer-motion";
+
 
 export const Projects = () => {
+  
+  const ref = useRef();
+  const control = useAnimation();
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["100px end", "75% start"]
+  });
+  
+  useMotionValueEvent(scrollYProgress, "change", (val) => {
+    if(val>0 && val<1){
+        document.querySelector('.my-projects').classList.add('is-active');
+        control.start('visible');
+    } else {
+        document.querySelector('.my-projects').classList.remove('is-active');
+        control.start('hidden');
+    }
+  });
+
   return (
-    <Container className="container" id="my-projects">
+    <Container 
+        as={motion.div} 
+        variants={{
+            visible: {opacity: 1, x: "0",transition: {type: "spring", duration: .25, ease: "easeInOut"}},
+            hidden: {opacity: 0, x: "-100%", transition: {duration: .4}}
+        }}
+        animate={control}
+        initial={'hidden'} 
+        ref={ref} 
+        className='container'
+        id='my-projects'
+    >
     <Title title={"Projects"}/>
         <div className="projects">
             {projects.map((project, id) => <ProjectCard project={project} key={"project#"+id}/>)}

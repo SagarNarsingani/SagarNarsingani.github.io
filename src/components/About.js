@@ -1,10 +1,43 @@
+import { useRef } from "react";
 import styled from "styled-components"
 import { BiRightArrow } from "react-icons/bi";
+import { motion, useScroll, useMotionValueEvent, useAnimation } from "framer-motion";
+
 import { Title } from "./Title";
 
 export const About = () => {
+  
+  const ref = useRef();
+  const control = useAnimation();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["100px end", "75% start"]
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (val) => {
+    if(val>0 && val<1){
+        document.querySelector('.about-me').classList.add('is-active');
+        control.start('visible');
+    } else {
+        document.querySelector('.about-me').classList.remove('is-active');
+        control.start('hidden');
+    }
+  });
+
   return (
-    <Container className='container' id="about-me">
+    <Container 
+        as={motion.div} 
+        variants={{
+            visible: {opacity: 1, transition: {duration: .25, ease: "easeInOut"}},
+            hidden: {opacity: 0, transition: {duration: .1, ease: "easeInOut"}}
+        }}
+        animate={control}
+        initial={{opacity: 0}} 
+        ref={ref} 
+        className='container'
+        id='about-me'
+    >
         <Title title='About Me'/>
         <div className="details">
             <div className="image">
@@ -58,7 +91,6 @@ export const About = () => {
 
 
 const Container = styled.div`
-
     .about{
         font-size: 1.175em;
         letter-spacing: normal;

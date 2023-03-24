@@ -21,17 +21,17 @@ export const Navbar = () => {
             </Heading>
         </Title>
         <Options>
-            <Option className='opt' onClick={(e) => scrollTo('about-me', e)}>About</Option>
-            <Option className='opt' onClick={(e) => scrollTo('my-skills', e)}>Skills</Option> 
-            <Option className='opt' onClick={(e) => scrollTo('my-projects', e)}>Projects</Option>
-            <Option className='opt' onClick={(e) => scrollTo('contact-me', e)}>Contact</Option>
+            <Option className='opt about-me' onClick={(e) => scrollTo('about-me', e)}>About</Option>
+            <Option className='opt my-skills' onClick={(e) => scrollTo('my-skills', e)}>Skills</Option> 
+            <Option className='opt my-projects' onClick={(e) => scrollTo('my-projects', e)}>Projects</Option>
+            <Option className='opt contact-me' onClick={(e) => scrollTo('contact-me', e)}>Contact</Option>
         </Options>
     </Conrainer>
   );
 }
 
 const Conrainer = styled.div`
-    background-color: #000000;             // for background color
+    background-color: rgba(0, 0, 0, 0.5);             // for background color
     position: fixed;                      // for keeping it on top of other elements
     right: 0; left: 0;                   // positioning...
     display: flex;                       // for aligning the title and options.
@@ -138,6 +138,9 @@ const Options = styled.ul`
         opacity: 1;
     }
 
+    .my-skills{ animation-delay: .5s; }
+    .my-projects{ animation-delay: 1s; }
+    .contact-me{ animation-delay: 1.5s; }    
 `;
 
 const Option = styled.li`
@@ -149,8 +152,9 @@ const Option = styled.li`
     font-family: 'Fira Code', monospace;
     // for after elements...
     position: relative;
+    top: -100px;
+    opacity: 0;
     transition: color 1s;   // hover...
-
     &::after{
         content: '';
         width: 0px;
@@ -168,10 +172,20 @@ const Option = styled.li`
         height: 100%;
         z-index: -1;
     }
-
+    
     // hover effect on text...
     &:hover { 
         color: #000;
         opacity: 1;
     }
+    
+    animation: bounce-in .5s ease forwards;
+    @keyframes bounce-in {
+        97% { top: 0; opacity: 0.7;}
+        99% { top: 10px; opacity: 0.7;}
+        100% { top: 0; opacity: 0.7;}
+        /* 99% { top: 3px; opacity: 0.7; } */
+        /* 100% { top: 0; opacity: 0.7; } */
+    }
+    
 `;
