@@ -2,13 +2,21 @@
     width: 85%;
     letter-spacing: .25em;
     margin-inline: auto;
-    padding-block: 4em;
+    padding-block: 3.25em;
     margin-bottom: 1em;
     color: white;
-    /* transition-duration: 500ms; */
 }
 
-.App{
+#light .container{
+    color: black;
+}
+
+#contact-me {
+    padding-block: 6em;
+}
+
+body{
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -29,7 +37,6 @@ ul{
 ::-webkit-scrollbar-track{
     background-color: transparent;
     border-radius: 100vw;
-    margin-block: .5em;
 }
 
 ::-webkit-scrollbar-thumb{

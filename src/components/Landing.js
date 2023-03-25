@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import {Tooltip} from 'react-tooltip'
 import Typewriter from 'typewriter-effect'
@@ -6,9 +6,12 @@ import { GiCoffeeMug } from "react-icons/gi";
 import 'react-tooltip/dist/react-tooltip.css'
 
 import CoverImage from '../assets/landing-image.jsx'
+import { ThemeContext } from './ThemeContext.js';
 
 
 export const Landing = () => {
+  
+  const {theme} = useContext(ThemeContext); 
   return (
     <Container className='container'>
         <IntroCard>
@@ -19,7 +22,7 @@ export const Landing = () => {
                     anchorSelect='#wave' 
                     className='tooltip'
                     style={{
-                        backgroundColor: "rgba(0, 0, 0, 0.2)",
+                        backgroundColor: theme==='dark' ? "rgba(0, 0, 0, 0.2)" : "rgba(0, 0, 0, 1)",
                         opacity: '0.6',
                         fontWeight: '400',
                         fontSize: '.6em',
@@ -54,7 +57,7 @@ export const Landing = () => {
                         anchorSelect='#coffee' 
                         className='tooltip'
                         style={{
-                            backgroundColor: "rgba(0, 0, 0, 0.2)",
+                            backgroundColor: theme==='dark' ? "rgba(0, 0, 0, 0.2)" : "rgba(0, 0, 0, 1)",
                             opacity: '0.8',
                             fontSize: '.75em',
                             cursor: "pointer",
@@ -67,8 +70,8 @@ export const Landing = () => {
                     </Tooltip>
             </DetailedIntro>
             <CalltoAction>
-                <Button inverted> Hire Me! </Button>
-                <Button> Resume </Button>
+                <Button inverted theme={theme}> Hire Me! </Button>
+                <Button theme={theme}> Resume </Button>
             </CalltoAction>
         </IntroCard>
 
@@ -293,7 +296,11 @@ const Button = styled.button`
     background-color: ${props => props.inverted ? "#76b687": "transparent"};
     border: 2px solid #76b687;
     outline: none;
-    color: ${props => props.inverted ? "black": "white"};
+    color: ${props => 
+        props.inverted ? 
+        (props.theme==='dark' ? "black" : "white"): 
+        (props.theme==='dark' ? "white" : "black")
+    };
     cursor: pointer;
     padding: .7rem 2rem;
     font-weight: 500;
@@ -313,6 +320,10 @@ const Button = styled.button`
     }
     &:hover{
         background-color: ${props => props.inverted ? "transparent": "#76b687"};
-        color: ${props => props.inverted ? "white": "black"};
+        color: ${ props => 
+            props.inverted ? 
+            (props.theme==='dark' ? "white" : "black"): 
+            (props.theme==='dark' ? "black" : "white")
+        };
     }
 `;

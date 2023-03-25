@@ -20,15 +20,12 @@
         "description": "A web application to keep all of your important notes saved at one place. It allows you to create, access, delete and update your notes.",
         "image" : "https://drive.google.com/uc?export=view&id=1f8rM9qdGtKQRlietOfu8scXYuhoJOZW5",
         "skills": ["React", "Node", "MongoDB", "Express"],
-        "link": "/",
         "github": "https://github.com/Cloud-LAB-Project/Keeper-App"
     },
     {
         "title": "Human Gait Recognition",
         "description": "A Machine learning project to recognize person based on his / her walking manner. I worked on this project in my final year of graduation.",
         "image" : "https://drive.google.com/uc?export=view&id=1TWs40qtIzWn7ObPKF7iSvJvqoOqk7RFX",
-        "skills": ["Machine Learning", "Image Processing"],
-        "link": "/",
-        "github": "/"
+        "skills": ["Machine Learning", "Image Processing"]
     }
 ]

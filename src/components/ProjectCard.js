@@ -9,29 +9,29 @@ export const ProjectCard = ({project}) => {
     window.open(link, '_blank', 'noopener noreferrer');
   }
   return (
-    <a href={project.github} target={"_blank"} rel='noopener noreferrer'>
-        <Container>
-            <SiGithub className='git-icon'/>
-            <div className='image' onClick={(_) => openProject(project.link)}>
-                <img
-                    height={125}
-                    width={125}
-                    src={project.image}
-                    alt={project.title}
-                />
-                <MdOutlineOpenInNew className='icon'/>
-            </div>
-            <div className='desc'>
-                <h4 className='header'>{project.title}</h4>
-                <p>{project.description}</p>
-            </div>
-            <div className='skills'>
-                <ul className='skill-list'>
-                    {project.skills.map((skill, id) => <li key={"skill#"+id}>{skill}</li>)}
-                </ul>
-            </div>
-        </Container>
-    </a>
+    <Container>
+        <span className='links'>
+            {project.github ? <SiGithub className='icon'/>: null}
+            {project.link ? <MdOutlineOpenInNew className='icon'/>: null}
+        </span>
+        <div className='image' onClick={(_) => openProject(project.link)}>
+            <img
+                height={125}
+                width={125}
+                src={project.image}
+                alt={project.title}
+            />
+        </div>
+        <div className='desc'>
+            <h4 className='header'>{project.title}</h4>
+            <p>{project.description}</p>
+        </div>
+        <div className='skills'>
+            <ul className='skill-list'>
+                {project.skills.map((skill, id) => <li key={"skill#"+id}>{skill}</li>)}
+            </ul>
+        </div>
+    </Container>
   )
 };
 
@@ -43,8 +43,8 @@ const Container = styled.div`
     margin-inline: 1em;
     border-radius: 10px;
     position: relative;
-    cursor: pointer;
-    color: rgba(255, 255, 255, .7);
+    opacity: .7;
+    /* color: rgba(255, 255, 255, .7); */
 
     &:hover{
         .image{
@@ -52,14 +52,23 @@ const Container = styled.div`
             .icon{opacity: 1}
         }
 
-        .git-icon{color: #76b687}
+        /* .git-icon{color: #76b687} */
     }
 
-    .git-icon{
+    .links{
         position: absolute;
-        top: .6em;
-        right: .6em;
-    }
+        top: .5em;
+        right: .1em;
+        font-size: 1.1em;
+        
+        .icon{
+            margin-inline: 0.5em;
+            cursor: pointer;
+            transition: color .5s;
+            &:hover{ color: #76b687; }
+        }
+    } 
+    
     .image{
         position: absolute;
         opacity: 0;
@@ -78,18 +87,6 @@ const Container = styled.div`
             .icon{
                 color: #76b687;
             }
-        }
-
-        .icon{
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.5em;
-            font-weight: 900;
-            opacity: 1;
-            color: rgba(255, 255, 255, 1);
-            z-index: 10000;
         }
     }
 

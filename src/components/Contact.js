@@ -54,19 +54,18 @@ export const Contact = () => {
 
 
 const Container = styled.div`
-
     .invite{
         margin-top: 1em;
         letter-spacing: normal;
         width: 75%;
         margin-inline: auto;
         font-size: 1.175em;
-        color: rgba(255, 255, 255, 0.7);
         opacity: .7;
         text-align: center;
     }
 
     @media (max-width: 960px){width: 100%}
+    @media (max-width: 830px){padding-block: 3em;}
     @media (max-width: 500px){font-size: .75em;}
 `;
 

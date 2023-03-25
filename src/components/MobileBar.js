@@ -3,26 +3,32 @@ import styled from 'styled-components';
 import { RxPerson, RxCode, RxPaperPlane, RxMixerHorizontal } from "react-icons/rx";
 
 export const MobileBar = () => {
+
+  const scrollTo = (section) => {
+      const component = document.getElementById(section);
+    component.scrollIntoView({behavior: "smooth", block: "start"});
+  }
+
   return (
     <Container>
 
         <MobileOptions>
-            <MobileOption>
+            <MobileOption onClick={_ => scrollTo('about-me')}>
                 <RxPerson/>
                 <p>About</p>
             </MobileOption>
 
-            <MobileOption>
-                <RxCode/>
-                <p>Projects</p>
-            </MobileOption>
-
-            <MobileOption>
+            <MobileOption onClick={_ => scrollTo('my-skills')}>
                 <RxMixerHorizontal/>
                 <p>Skills</p>
             </MobileOption>
 
-            <MobileOption>
+            <MobileOption onClick={_ => scrollTo('my-projects')}>
+                <RxCode/>
+                <p>Projects</p>
+            </MobileOption>
+
+            <MobileOption onClick={_ => scrollTo('contact-me')}>
                 <RxPaperPlane/>
                 <p>Contact</p>
             </MobileOption>

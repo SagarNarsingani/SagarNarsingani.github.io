@@ -86,7 +86,6 @@ const Container = styled.div`
     margin-left: 1.5em;
     font-size: 1.175em;
     letter-spacing: normal;
-    color: rgba(255, 255, 255, 0.7);
     opacity: .7;
     p{margin-bottom: .75em;}
     display: inline-block;

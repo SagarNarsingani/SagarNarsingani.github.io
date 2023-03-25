@@ -38,7 +38,7 @@ export const About = () => {
         className='container'
         id='about-me'
     >
-        <Title title='About Me'/>
+        <Title title='Who am I?'/>
         <div className="details">
             <div className="image">
                 <img
@@ -95,7 +95,6 @@ const Container = styled.div`
         font-size: 1.175em;
         letter-spacing: normal;
         width: 55%;
-        color: rgba(255, 255, 255, 0.7);
         opacity: .7;
         p{margin-bottom: .75em;}
         display: inline-block;

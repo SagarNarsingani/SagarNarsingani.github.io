@@ -11,7 +11,8 @@ import {
   Legend,
 } from 'chart.js';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import { ThemeContext } from './ThemeContext';
 
 ChartJS.register(
   CategoryScale,
@@ -35,7 +36,7 @@ export const options = {
             family: "'Jost', 'sans-serif'"
         },
         callbacks: {
-            label: (_) => "Working on it🙂",
+            label: (_) => `${Math.ceil(_.parsed.y)} / 10`,
             labelTextColor: (_) => "#76b687",
             title: (context) => context[0].label.replace(',', ' '),
             
@@ -108,7 +109,10 @@ export const SkillBar = () => {
   const ref = useRef(null);
   const inView = useInView(ref);
 
-  return <Container ref={ref}>
+  const {theme} = useContext(ThemeContext);
+  options.scales.y.ticks.color = theme==='dark' ? 'rgba(255, 255, 255, .3)' : 'rgba(0, 0, 0, .5)'
+  options.scales.x.ticks.color = theme==='dark' ? 'rgba(255, 255, 255, .3)' : 'rgba(0, 0, 0, .5)'
+  return <Container theme={theme} ref={ref}>
     <Bar options={options}  redraw={inView} data={data} />
     <p>How I rate my self!</p>
   </Container>
@@ -122,7 +126,8 @@ const Container = styled.div`
     padding-bottom: 2em;
     display: inline-block;
     letter-spacing: normal;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid;
+    border-color: ${props => props.theme==='dark' ? 'rgba(255, 255, 255, .1)' : 'rgba(0, 0, 0, 0.1)'};
     font-family: 'Fira Code', monospace;
 
     @media (max-width: 1349px){
@@ -134,7 +139,7 @@ const Container = styled.div`
       margin-inline: auto;
       margin-top: 1em;
       text-align: center;
-      color: rgba(255, 255, 255, 0.4);
+      color: ${props => props.theme==='dark' ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.4)'};
       margin-top: .25em;
     }
     

@@ -1,19 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import {ThemeContext} from './ThemeContext'
+import { BsMoonStars, BsSun } from "react-icons/bs";
 
 export const Navbar = () => {
-
-  const scrollTo = (section, event) => {
+  const {theme, changeTheme} = useContext(ThemeContext);
+  const scrollTo = (section) => {
       const component = document.getElementById(section);
-      const opts = document.querySelectorAll('.opt');
-      opts.forEach(opt => opt.classList.remove('is-active'));
-      event.target.classList.add('is-active');
     component.scrollIntoView({behavior: "smooth", block: "start"});
   }
 
   return (
-    <Conrainer>
-        <Title>
+    <Container theme={theme}>
+        <Title theme={theme}>
             <Heading>
                 <span className="left-arrow"> &lt;</span> 
                     Sagar Narsingani 
@@ -21,24 +20,25 @@ export const Navbar = () => {
             </Heading>
         </Title>
         <Options>
-            <Option className='opt about-me' onClick={(e) => scrollTo('about-me', e)}>About</Option>
-            <Option className='opt my-skills' onClick={(e) => scrollTo('my-skills', e)}>Skills</Option> 
-            <Option className='opt my-projects' onClick={(e) => scrollTo('my-projects', e)}>Projects</Option>
-            <Option className='opt contact-me' onClick={(e) => scrollTo('contact-me', e)}>Contact</Option>
+            <Option className='opt about-me' onClick={(_) => scrollTo('about-me')}>About</Option>
+            <Option className='opt my-skills' onClick={(_) => scrollTo('my-skills')}>Skills</Option> 
+            <Option className='opt my-projects' onClick={(_) => scrollTo('my-projects')}>Projects</Option>
+            <Option className='opt contact-me' onClick={(_) => scrollTo('contact-me')}>Contact</Option>
+            <span className={`theme-btn ${theme}`} onClick={changeTheme}> { theme==='dark' ? <BsMoonStars/> : <BsSun/> } </span>
         </Options>
-    </Conrainer>
+    </Container>
   );
 }
 
-const Conrainer = styled.div`
-    background-color: rgba(0, 0, 0, 0.5);             // for background color
+const Container = styled.div`
+    background-color: ${props => props.theme ==='dark' ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.5)'};
     position: fixed;                      // for keeping it on top of other elements
     right: 0; left: 0;                   // positioning...
     display: flex;                       // for aligning the title and options.
     align-items: center;                // for aligning the title and options vertically
     width: 100%;                       // making it full width
     padding: 1.25rem;                 // for padding
-    color: #fff;                     // for color of options
+    color: ${props => props.theme==='dark' ? '#fff' : '#000'};                     // for color of options
     opacity: .9;                    // for making the background a little transparent
     backdrop-filter: blur(10px);   // for blurring the background
     z-index: 1;                   // to keep it on top of other elements
@@ -70,7 +70,7 @@ const Title = styled.span`
     
     &:hover {
         color: #76b687;
-        .left-arrow, .right-arrow { color: #fff; }
+        .left-arrow, .right-arrow { color: ${props => props.theme==='dark' ? '#fff' : '#000'}; }
     }
     
     @media(max-width: 830px) {
@@ -80,22 +80,17 @@ const Title = styled.span`
 
 const Heading = styled.div`
     overflow: hidden;
-    white-space: nowrap;           // for the text to be in one line
-    position: relative;           // for the after element to be positioned relative to the parent
+    white-space: nowrap;       
+    position: relative;       
     letter-spacing: 1.5px;
-    // typewritter effect...
-    animation: slideIn 3.5s steps(40, end);
     
-    // for the blinking cursor
     &::after{
         content: '';
         width: 10px;
         border-bottom: 5px solid #76b687;
-        // positioning...
         position: absolute;
         top: 78%;
         right: .5%;
-        // blinking animation...
         animation: blink .5s step-end infinite;
     }
     
@@ -119,10 +114,9 @@ const Heading = styled.div`
 const Options = styled.ul`
     font-weight: 500;
     font-size: 1.1em;
-    position: absolute;     // needed to shift the options to the right.
-    right: 1rem;
+    position: absolute;
+    right: 1.5rem;
     
-    // handling it for smaller screens...
     @media(max-width: 830px) {
         display: none;
         right: 0;
@@ -137,7 +131,19 @@ const Options = styled.ul`
         color: #000;
         opacity: 1;
     }
+    
+    .theme-btn{
+        position: relative;
+        top: 2.5px;
+        cursor: pointer;
+        font-size: 1em;
+        &:hover{color: #76b687}
+    }
 
+    .light{
+        font-size: 1.25em;
+        top: 5px;
+    }
     .my-skills{ animation-delay: .5s; }
     .my-projects{ animation-delay: 1s; }
     .contact-me{ animation-delay: 1.5s; }    
@@ -154,7 +160,7 @@ const Option = styled.li`
     position: relative;
     top: -100px;
     opacity: 0;
-    transition: color 1s;   // hover...
+    transition: color 1s;
     &::after{
         content: '';
         width: 0px;
@@ -162,18 +168,16 @@ const Option = styled.li`
         background-color: #76b687;
         position: absolute;
         top: 0;
-        left: -10%; // to add padding...
+        left: -10%;
         transition: width 300ms, height 100ms 300ms;
     }
     
-    // hover effect on background...
     &:hover::after {
         width: 120%;    // padding...
         height: 100%;
         z-index: -1;
     }
     
-    // hover effect on text...
     &:hover { 
         color: #000;
         opacity: 1;
@@ -184,8 +188,6 @@ const Option = styled.li`
         97% { top: 0; opacity: 0.7;}
         99% { top: 10px; opacity: 0.7;}
         100% { top: 0; opacity: 0.7;}
-        /* 99% { top: 3px; opacity: 0.7; } */
-        /* 100% { top: 0; opacity: 0.7; } */
     }
     
 `;

@@ -40,7 +40,7 @@ export const Projects = () => {
         className='container'
         id='my-projects'
     >
-    <Title title={"Projects"}/>
+    <Title title={"Featured Projects"}/>
         <div className="projects">
             {projects.map((project, id) => <ProjectCard project={project} key={"project#"+id}/>)}
         </div>    
