@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import styled from "styled-components"
+import { ThemeContext } from "./ThemeContext";
 
 export const EmailBar = () => {
+  const {theme} = useContext(ThemeContext);
   return (
-    <Container>
+    <Container theme={theme}>
         <ul>
             <li>
                 <a href="mailto:narsinganisagarh@gmail.com">
@@ -30,7 +33,7 @@ const Container = styled.div`
 
     ul{
       list-style-type: none;  // removing dots that come before li elements.
-      color: white;           
+      color: ${props => props.theme==='dark' ? 'white' : 'black'};           
       padding: 1.33em;    // to make it equally far from the boundary as Social Bar.
       padding-bottom: 0;  // don't want it in the bottom.
       position: relative; // for after element.
@@ -49,7 +52,7 @@ const Container = styled.div`
     // for the line before email id...
     ul::after{
         content: "";
-        background-color: rgba(255, 255, 255, 1);
+        background-color: ${props => props.theme==='dark' ? 'white' : 'black'};
         display: block;
         width: 1px;
         height: 10em;

@@ -32,7 +32,7 @@ export function Skills() {
         as={motion.div} 
         variants={{
             visible: {opacity: 1, x:0, transition: {duration: .25, type: "spring",  ease: "easeOut"}},
-            hidden: {opacity: 0, x:"100%",transition: {duration: .25, ease: "easeIn"}}
+            hidden: {opacity: 0 , x:"100%",transition: {duration: .25, ease: "easeIn"}}
         }}
         animate={control}
         initial={{opacity: 0}}  

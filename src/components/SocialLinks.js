@@ -1,9 +1,13 @@
 import styled from "styled-components"
 import { SiLinkedin, SiGithub, SiInstagram, SiLeetcode, SiGeeksforgeeks } from "react-icons/si";
 
+import { ThemeContext } from "./ThemeContext";
+import { useContext } from "react";
+
 export const SocialLinks = () => {
+  const {theme} = useContext(ThemeContext);
   return (
-    <Container>
+    <Container theme={theme}>
         <ul>
             <li>
               <a target={"_blank"} rel='noopener noreferrer' href="https://linkedin.com/in/sagarnarsingani"><SiLinkedin/></a>
@@ -39,7 +43,7 @@ const Container = styled.div`
 
   ul{
     list-style-type: none;    // remove dots from li elements...
-    color: white;
+    color: ${props => props.theme==='dark' ? 'white' : 'black'};
     // little bit padding to make all the chils center aligned...
     padding: 1em;
     /// so that line can remain in contact with bottom part...
@@ -52,7 +56,7 @@ const Container = styled.div`
   // for the line...
   ul::after{
     content: "";
-    background-color: rgba(255, 255, 255, 1);
+    background-color: ${props => props.theme==='dark' ? 'white' : 'black'};
     opacity: .7;
     display: block;
 

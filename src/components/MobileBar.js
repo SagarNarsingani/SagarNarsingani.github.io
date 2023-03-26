@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components';
 import { RxPerson, RxCode, RxPaperPlane, RxMixerHorizontal } from "react-icons/rx";
+import { BsMoonStars, BsSun } from "react-icons/bs";
+
+import {ThemeContext} from './ThemeContext';
 
 export const MobileBar = () => {
-
+  
+  const { theme, changeTheme } = useContext(ThemeContext)
+  
   const scrollTo = (section) => {
       const component = document.getElementById(section);
     component.scrollIntoView({behavior: "smooth", block: "start"});
   }
 
   return (
-    <Container>
+    <Container theme={theme}>
 
-        <MobileOptions>
+        <MobileOptions theme={theme}>
             <MobileOption onClick={_ => scrollTo('about-me')}>
                 <RxPerson/>
                 <p>About</p>
@@ -32,6 +37,11 @@ export const MobileBar = () => {
                 <RxPaperPlane/>
                 <p>Contact</p>
             </MobileOption>
+
+            <MobileOption onClick={changeTheme}>
+                { theme==='light' ? <BsMoonStars/> : <BsSun className='light-mode-opt'/> }
+                <p>{theme==='dark' ? 'Light' : 'Dark'}</p>
+            </MobileOption>
         </MobileOptions>
 
     </Container>
@@ -44,12 +54,16 @@ const Container = styled.div`
     bottom: 10%;        // positioning...
     display: none;      // for bigger screens...
     text-align: center;     // making the main bar centered...
-    color: white;
+    color: ${props => props.theme==='dark' ? 'white' : 'black'};
     z-index: 1;         // to bring the container little bit down on z index...
 
     // show it for mobile screens...
     @media (max-width: 830px) {
         display: block;
+    }
+
+    .light-mode-opt{
+        font-size: 1.1em;
     }
 `;
 
@@ -59,7 +73,7 @@ const MobileOptions = styled.div`
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: ${props => props.theme==='dark' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.6)'};
     padding: .75rem 0em;
     box-shadow: 23px 23px 90px 1px rgba(0,0,0,.55);
     // making bg blur...

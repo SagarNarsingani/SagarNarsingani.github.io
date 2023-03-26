@@ -3,7 +3,7 @@
     letter-spacing: .25em;
     margin-inline: auto;
     padding-block: 3.25em;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
     color: white;
 }
 
@@ -12,10 +12,14 @@
 }
 
 #contact-me {
-    padding-block: 6em;
+    padding-block: 7em;
 }
 
-body{
+@media (max-width: 830px) {
+    #contact-me{ padding-block: 3em; }
+}
+
+.App{
   scroll-behavior: smooth;
   overflow-x: hidden;
 }

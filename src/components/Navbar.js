@@ -24,7 +24,7 @@ export const Navbar = () => {
             <Option className='opt my-skills' onClick={(_) => scrollTo('my-skills')}>Skills</Option> 
             <Option className='opt my-projects' onClick={(_) => scrollTo('my-projects')}>Projects</Option>
             <Option className='opt contact-me' onClick={(_) => scrollTo('contact-me')}>Contact</Option>
-            <span className={`theme-btn ${theme}`} onClick={changeTheme}> { theme==='dark' ? <BsMoonStars/> : <BsSun/> } </span>
+            <span className={`theme-btn ${theme}`} onClick={changeTheme}> { theme==='light' ? <BsMoonStars/> : <BsSun/> } </span>
         </Options>
     </Container>
   );
@@ -140,7 +140,7 @@ const Options = styled.ul`
         &:hover{color: #76b687}
     }
 
-    .light{
+    .dark{
         font-size: 1.25em;
         top: 5px;
     }

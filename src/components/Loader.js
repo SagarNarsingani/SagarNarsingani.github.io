@@ -41,7 +41,7 @@ const Component = styled.div`
 
     @keyframes slide-up-loader {
         0%{top: 0;}
-        100%{ top: -100%;}
+        100%{ top: -100%; display: none;}
     }
 
     div{
