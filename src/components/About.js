@@ -42,7 +42,7 @@ export const About = () => {
         <div className="details">
             <div className="image">
                 <img
-                    src={'/profile.jpg'}
+                    src={'https://drive.google.com/uc?export=view&id=1yogCABx38B_-YxNz_B5q-0vuDdkinIKk'}
                     alt={'profile'}
                 />
             </div>
