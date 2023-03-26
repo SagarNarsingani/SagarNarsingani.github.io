@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/%7Bsagar-portfolio%7D/static/css/main.1811a9e9.css",
+    "main.js": "/%7Bsagar-portfolio%7D/static/js/main.1860fd9d.js",
+    "index.html": "/%7Bsagar-portfolio%7D/index.html",
+    "main.1811a9e9.css.map": "/%7Bsagar-portfolio%7D/static/css/main.1811a9e9.css.map",
+    "main.1860fd9d.js.map": "/%7Bsagar-portfolio%7D/static/js/main.1860fd9d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1811a9e9.css",
+    "static/js/main.1860fd9d.js"
+  ]
+}
