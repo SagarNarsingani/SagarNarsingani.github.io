@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sagar-portfolio/static/css/main.1811a9e9.css",
-    "main.js": "/sagar-portfolio/static/js/main.718bb1a0.js",
-    "index.html": "/sagar-portfolio/index.html",
-    "main.1811a9e9.css.map": "/sagar-portfolio/static/css/main.1811a9e9.css.map",
-    "main.718bb1a0.js.map": "/sagar-portfolio/static/js/main.718bb1a0.js.map"
+    "main.css": "/static/css/main.1811a9e9.css",
+    "main.js": "/static/js/main.f46cc081.js",
+    "index.html": "/index.html",
+    "main.1811a9e9.css.map": "/static/css/main.1811a9e9.css.map",
+    "main.f46cc081.js.map": "/static/js/main.f46cc081.js.map"
   },
   "entrypoints": [
     "static/css/main.1811a9e9.css",
-    "static/js/main.718bb1a0.js"
+    "static/js/main.f46cc081.js"
   ]
 }
