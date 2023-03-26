@@ -15,10 +15,6 @@
     padding-block: 7em;
 }
 
-@media (max-width: 830px) {
-    #contact-me{ padding-block: 3em; }
-}
-
 .App{
   scroll-behavior: smooth;
   overflow-x: hidden;
