@@ -13,7 +13,7 @@ export const SocialLinks = () => {
               <a target={"_blank"} rel='noopener noreferrer' href="https://linkedin.com/in/sagarnarsingani"><SiLinkedin/></a>
             </li>
             <li>
-              <a target={"_blank"} rel='noopener noreferrer' href="https://github.com/SHNarsingani24"><SiGithub/></a>
+              <a target={"_blank"} rel='noopener noreferrer' href="https://github.com/SagarNarsingani"><SiGithub/></a>
             </li>
             <li>
               <a target={"_blank"} rel='noopener noreferrer' href="https://leetcode.com/aquacode_/"><SiLeetcode/></a>

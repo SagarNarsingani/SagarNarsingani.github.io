@@ -5,7 +5,7 @@
         "image" : "https://drive.google.com/uc?export=view&id=1Vo9BBFiQNpwdVb4p5igO8sdW4jpVwDoG",
         "skills": ["Node", "JavaScript", "CLI"],
         "link": "https://www.npmjs.com/package/leetstat-cli",
-        "github": "https://github.com/SHNarsingani24/leetstat-cli"
+        "github": "https://github.com/SagarNarsingani/leetstat-cli"
     },
     {
         "title": "Disney+ Hotstar",
@@ -13,7 +13,7 @@
         "image" : "https://drive.google.com/uc?export=view&id=1XX7m9j0LB55zLdBrZeO6fcL-B_Wg1eSm",
         "skills": ["React", "Firebase", "styled-components"],
         "link": "https://disneyplus-clone-7990a.web.app/home",
-        "github": "https://github.com/SHNarsingani24/disney-hotstar-clone"
+        "github": "https://github.com/SagarNarsingani/disney-hotstar-clone"
     },
     {
         "title": "Keeper Web App",
