@@ -91,7 +91,7 @@ const Heading = styled.div`
         position: absolute;
         top: 78%;
         right: .5%;
-        animation: blink .5s step-end infinite;
+        animation: blink 1s step-end 3; 
     }
     
     @keyframes slideIn {
