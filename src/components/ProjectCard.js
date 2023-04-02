@@ -11,8 +11,8 @@ export const ProjectCard = ({project}) => {
   return (
     <Container>
         <span className='links'>
-            {project.github ? <SiGithub className='icon'/>: null}
-            {project.link ? <MdOutlineOpenInNew className='icon'/>: null}
+            {project.github ? <SiGithub className='icon' onClick={openProject(project.github)} />: null}
+            {project.link ? <MdOutlineOpenInNew className='icon' onClick={openProject(project.link)} />: null}
         </span>
         <div className='image' onClick={(_) => openProject(project.link)}>
             <img
