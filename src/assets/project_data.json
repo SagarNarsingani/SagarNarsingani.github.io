@@ -20,7 +20,8 @@
         "description": "A web application to keep all of your important notes saved at one place. It allows you to create, access, delete and update your notes.",
         "image" : "https://drive.google.com/uc?export=view&id=1f8rM9qdGtKQRlietOfu8scXYuhoJOZW5",
         "skills": ["React", "Node", "MongoDB", "Express"],
-        "github": "https://github.com/Cloud-LAB-Project/Keeper-App"
+        "link": "https://keeper-app-o1ey.onrender.com/",
+        "github": "https://github.com/SagarNarsingani/keeper-app"
     },
     {
         "title": "Human Gait Recognition",
