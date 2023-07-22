@@ -73,7 +73,7 @@ export const Landing = () => {
                 <a href='mailto:narsinganisagarh@gmail.com'>
                     <Button inverted theme={theme}> Hire Me!</Button>
                 </a>
-                <a href='https://drive.google.com/file/d/1IUJv-9CXxNhfhJrOCRXjwazn1yGD3Mkx/view' target='_blank' rel='noopener noreferrer'><Button theme={theme}> Resume </Button></a>
+                <a href='https://drive.google.com/file/d/1wCWxyPeto5Cvo0B9giiZNE0pAwdRKHKS/view?usp=sharing' target='_blank' rel='noopener noreferrer'><Button theme={theme}> Resume </Button></a>
             </CalltoAction>
         </IntroCard>
 
